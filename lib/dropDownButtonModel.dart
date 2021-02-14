@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
 class DropDownButtonModel extends ChangeNotifier {
-  String _defaultValue = 'a';
+  String _defaultValue = '好きな色をしてください';
+  String _text = '';
+
   // リストアイテム
   List<String> _list = <String>[
-    'a',
-    'b',
-    'c',
+    '好きな色をしてください',
+    'red',
+    'blue',
+    'green',
+    'yellow',
+    'pink',
+    'grey',
+    'white',
+    'black',
+    'orange',
+    'lime',
   ];
-  String _text = '';
 
   get defaultValue => _defaultValue;
   get list => _list;

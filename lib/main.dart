@@ -39,23 +39,29 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'You have pushed the button this many times:',
+                model.text.isNotEmpty ? model.text : model.defaultValue,
+                style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500),
               ),
               DropdownButton<String>(
-                  value: model.text.isNotEmpty ? model.text : 'a',
+                  value:
+                      model.text.isNotEmpty ? model.text : model.defaultValue,
                   onChanged: (newValue) {
                     model.text = newValue;
                   },
-                  items: <String>[
-                    'a',
-                    'b',
-                    'c',
-                  ].map<DropdownMenuItem<String>>((String value) {
+                  items:
+                      model.list.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
                     );
                   }).toList()),
+              FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: () {},
+              )
             ],
           ),
         ),
